@@ -1,4 +1,4 @@
-%bcond_without bootstrap
+%bcond_with bootstrap
 
 %{?cygwin_package_header}
 
@@ -9,7 +9,7 @@ Summary:   Default application manifests for Cygwin toolchains
 
 Group:     Development/Libraries
 License:   Copyright only
-URL:       http://cygwin.com/
+URL:       https://cygwin.com/
 BuildArch: noarch
 
 # use get-sources.sh to download from cvs tag
