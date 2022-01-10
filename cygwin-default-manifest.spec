@@ -1,3 +1,5 @@
+%bcond_without bootstrap
+
 %{?cygwin_package_header}
 
 Name:      cygwin-default-manifest
@@ -16,10 +18,14 @@ Source0:   windows-default-manifest-%{version}.tar.xz
 BuildRequires: autoconf automake
 BuildRequires: cygwin32-filesystem
 BuildRequires: cygwin32-binutils
-BuildRequires: cygwin32-gcc
 BuildRequires: cygwin64-filesystem
 BuildRequires: cygwin64-binutils
+%if %{with bootstrap}
+BuildRequires: gcc
+%else
+BuildRequires: cygwin32-gcc
 BuildRequires: cygwin64-gcc
+%endif
 BuildRequires: make
 
 
