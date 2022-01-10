@@ -2,7 +2,7 @@
 
 Name:      cygwin-default-manifest
 Version:   6.4
-Release:   3%{?dist}
+Release:   4%{?dist}
 Summary:   Default application manifests for Cygwin toolchains
 
 Group:     Development/Libraries
@@ -16,8 +16,10 @@ Source0:   windows-default-manifest-%{version}.tar.xz
 BuildRequires: autoconf automake
 BuildRequires: cygwin32-filesystem
 BuildRequires: cygwin32-binutils
+BuildRequires: cygwin32-gcc
 BuildRequires: cygwin64-filesystem
 BuildRequires: cygwin64-binutils
+BuildRequires: cygwin64-gcc
 
 
 %description
@@ -67,6 +69,9 @@ autoreconf -fiv
 
 
 %changelog
+* Mon Jan 10 2022 Yaakov Selkowitz <yselkowi@redhat.com> - 6.4-4
+- rebuilt
+
 * Wed Nov 15 2017 Yaakov Selkowitz <yselkowi@redhat.com> - 6.4-3
 - rebuilt
 
