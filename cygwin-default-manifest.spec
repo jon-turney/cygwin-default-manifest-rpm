@@ -20,6 +20,7 @@ BuildRequires: cygwin32-gcc
 BuildRequires: cygwin64-filesystem
 BuildRequires: cygwin64-binutils
 BuildRequires: cygwin64-gcc
+BuildRequires: make
 
 
 %description
