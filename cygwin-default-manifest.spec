@@ -12,7 +12,7 @@ License:   Copyright only
 URL:       https://cygwin.com/
 BuildArch: noarch
 
-# use get-sources.sh to download from cvs tag
+# use get-sources.sh to download from git tag
 Source0:   windows-default-manifest-%{version}.tar.xz
 
 BuildRequires: autoconf automake
