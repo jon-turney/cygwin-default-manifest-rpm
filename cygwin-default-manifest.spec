@@ -22,11 +22,14 @@ BuildRequires: cygwin32-filesystem
 BuildRequires: cygwin32-binutils
 BuildRequires: cygwin64-filesystem
 BuildRequires: cygwin64-binutils
+BuildRequires: cygwin-aarch64-filesystem
+BuildRequires: cygwin-aarch64-binutils
 %if %{with bootstrap}
 BuildRequires: gcc
 %else
 BuildRequires: cygwin32-gcc
 BuildRequires: cygwin64-gcc
+BuildRequires: cygwin-aarch64-gcc
 %endif
 BuildRequires: make
 
@@ -40,17 +43,24 @@ applications without compatibility manifests are treated as compatible with
 the oldest supported version of Windows (e.g. Vista).
 
 %package -n cygwin32-default-manifest
-Summary:   Default application manifests for Cygwin32 toolchain
+Summary:   Default application manifests for Cygwin i686 toolchain
 Group:     Development/Libraries
 
 %description -n cygwin32-default-manifest
 %{description}
 
 %package -n cygwin64-default-manifest
-Summary:   Default application manifests for Cygwin64 toolchain
+Summary:   Default application manifests for Cygwin x64_64 toolchain
 Group:     Development/Libraries
 
 %description -n cygwin64-default-manifest
+%{description}
+
+%package -n cygwin-aarch64-default-manifest
+Summary:   Default application manifests for Cygwin aarch64 toolchain
+Group:     Development/Libraries
+
+%description -n cygwin-aarch64-default-manifest
 %{description}
 
 
@@ -76,8 +86,15 @@ autoreconf -fiv
 %doc COPYING README
 %{cygwin64_libdir}/default-manifest.o
 
+%files -n cygwin-aarch64-default-manifest
+%doc COPYING README
+%{cygwin_aarch64_libdir}/default-manifest.o
+
 
 %changelog
+* Tue Sep 15 2026 Jon Turney <jon.turney@dronecode.org.uk> - 6.5-2
+- add aarch64 package
+
 * Sat Sep 12 2026 Jon Turney <jon.turney@dronecode.org.uk> - 6.5-1
 - new version
 
