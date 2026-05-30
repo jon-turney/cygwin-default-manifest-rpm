@@ -4,7 +4,7 @@
 
 Name:      cygwin-default-manifest
 Version:   6.4
-Release:   4%{?dist}
+Release:   5%{?dist}
 Summary:   Default application manifests for Cygwin toolchains
 
 Group:     Development/Libraries
@@ -20,11 +20,14 @@ BuildRequires: cygwin32-filesystem
 BuildRequires: cygwin32-binutils
 BuildRequires: cygwin64-filesystem
 BuildRequires: cygwin64-binutils
+BuildRequires: cygwin-aarch64-filesystem
+BuildRequires: cygwin-aarch64-binutils
 %if %{with bootstrap}
 BuildRequires: gcc
 %else
 BuildRequires: cygwin32-gcc
 BuildRequires: cygwin64-gcc
+BuildRequires: cygwin-aarch64-gcc
 %endif
 BuildRequires: make
 
@@ -51,6 +54,13 @@ Group:     Development/Libraries
 %description -n cygwin64-default-manifest
 %{description}
 
+%package -n cygwin-aarch64-default-manifest
+Summary:   Default application manifests for Cygwin aarch64 toolchain
+Group:     Development/Libraries
+
+%description -n cygwin-aarch64-default-manifest
+%{description}
+
 
 %prep
 %setup -q -n windows-default-manifest-%{version}
@@ -59,7 +69,7 @@ autoreconf -fiv
 
 %build
 %cygwin_configure
-%cygwin_make %{?_smp_mflags}
+%cygwin_make_build
 
 
 %install
@@ -73,6 +83,10 @@ autoreconf -fiv
 %files -n cygwin64-default-manifest
 %doc COPYING README
 %{cygwin64_libdir}/default-manifest.o
+
+%files -n cygwin-aarch64-default-manifest
+%doc COPYING README
+%{cygwin_aarch64_libdir}/default-manifest.o
 
 
 %changelog
