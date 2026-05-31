@@ -2,9 +2,11 @@
 
 %{?cygwin_package_header}
 
+%define _make_verbose %{nil}
+
 Name:      cygwin-default-manifest
-Version:   6.4
-Release:   4%{?dist}
+Version:   6.5
+Release:   1%{?dist}
 Summary:   Default application manifests for Cygwin toolchains
 
 Group:     Development/Libraries
@@ -59,7 +61,7 @@ autoreconf -fiv
 
 %build
 %cygwin_configure
-%cygwin_make %{?_smp_mflags}
+%cygwin_make_build
 
 
 %install
@@ -76,6 +78,9 @@ autoreconf -fiv
 
 
 %changelog
+* Sat Sep 12 2026 Jon Turney <jon.turney@dronecode.org.uk> - 6.5-1
+- new version
+
 * Mon Jan 10 2022 Yaakov Selkowitz <yselkowi@redhat.com> - 6.4-4
 - rebuilt
 
