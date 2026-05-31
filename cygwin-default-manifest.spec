@@ -3,8 +3,8 @@
 %{?cygwin_package_header}
 
 Name:      cygwin-default-manifest
-Version:   6.4
-Release:   5%{?dist}
+Version:   6.5
+Release:   1%{?dist}
 Summary:   Default application manifests for Cygwin toolchains
 
 Group:     Development/Libraries
